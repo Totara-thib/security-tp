@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+<h1>Users list</h1>
+
+
+ <li th:each="user : ${users}" th:attr="data-value=${user.id}">
+    <span th:text="${user.username}"></span>
+    <a th:href='@{/users/delete/}+${user.id}' class='close' aria-hidden='true'> Delete</a>
+     <a th:href='@{/users/edit/}+${user.id}' class='close' aria-hidden='true'> Modify</a>
+</li>
+    
+</body>
+</html>

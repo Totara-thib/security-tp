@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit User</title>
+</head>
+<body>
+
+<h1>Add User</h1>
+	<form th:action="@{/users/add}" method="post">
+	<div><input type="text" name="username" placeholder=""></div>
+	<div><input type="password" name="password" placeholder="">
+	</div>
+	<div><input type="submit" value="Create"></div>
+	
+</form>
+
+</body>
+</html>

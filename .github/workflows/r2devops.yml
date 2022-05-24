@@ -1,0 +1,26 @@
+# R2Devops.io pipeline template - this template aims to generate a complete pipeline
+#
+# Inputs:
+#   - List of technologies detected in the project : batchfile, html, ignore list, ini, java, java properties, maven pom, shell,
+
+name: R2Devops
+on:
+  push:
+    branches: [ main,r2devops-autopipeline2]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  maven-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots package
+
